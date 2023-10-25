@@ -33,9 +33,10 @@ namespace CapiFiscal
                 {
                     LogicaMenu descricao = new LogicaMenu();
                     LogicaMenu valorUni = new LogicaMenu();
+                    LogicaMenu quantidade = new LogicaMenu();
 
 
-                    Escrever.Padrao($"  {v.Item}      {v.Codigo}  {descricao.DescricaoProduto(v)}       {v.Quantidade} X {valorUni.ValorProduto(v)}        {v.ValorTotal}");
+                    Escrever.Padrao($"  {v.Item}      {v.Codigo}  {descricao.DescricaoProduto(v)}       {quantidade.QuantidadeProduto(v)} X {valorUni.ValorProduto(v)}     {v.ValorTotal}");
                 }
             }
         }

@@ -39,6 +39,10 @@ namespace CapiFiscal.Utilitarios
             int padrao = 6;
             string valorDepoisVirgula;
             string valorString = venda.ValorUnitario.ToString();
+            if (valorString.Length > 6)
+            {
+                valorString = "999,99";
+            }
             if (valorString.Contains(","))
             {
                 valorDepoisVirgula = valorString.Split(',')[1];
@@ -71,6 +75,30 @@ namespace CapiFiscal.Utilitarios
             return valorString;
         }
 
-       
+        public string QuantidadeProduto(Venda venda)
+        {
+            int padrao = 2;
+            string quantidadeString = venda.Quantidade.ToString();
+            if (quantidadeString.Length > 2)
+            {
+                quantidadeString = "99";
+            }
+            if (quantidadeString.Length == 1)
+            {
+                quantidadeString = "0" + quantidadeString;
+            }
+
+            var concatenado = new System.Text.StringBuilder();
+            concatenado.Append(quantidadeString);
+            for (int i = 0; i < padrao - quantidadeString.Length; i++)
+            {
+                concatenado.Append(" ");
+            }
+
+            quantidadeString = concatenado.ToString();
+
+            return quantidadeString;
+
+        }
     }
 }
