@@ -32,8 +32,10 @@ namespace CapiFiscal
                 foreach (var v in vendas)
                 {
                     LogicaMenu descricao = new LogicaMenu();
-                    
-                    Escrever.Padrao($"  {v.Item}      {v.Codigo}  {descricao.DescricaoProduto(v)}       {v.Quantidade} X {v.ValorUnitario + 1}        {v.ValorTotal}");
+                    LogicaMenu valorUni = new LogicaMenu();
+
+
+                    Escrever.Padrao($"  {v.Item}      {v.Codigo}  {descricao.DescricaoProduto(v)}       {v.Quantidade} X {valorUni.ValorProduto(v)}        {v.ValorTotal}");
                 }
             }
         }

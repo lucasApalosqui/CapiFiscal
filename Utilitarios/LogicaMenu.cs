@@ -34,9 +34,43 @@ namespace CapiFiscal.Utilitarios
             return descricaoFormatada;
         }
 
-        public string QntXValor(Venda venda)
+        public string ValorProduto(Venda venda)
         {
-            return "";
+            int padrao = 6;
+            string valorDepoisVirgula;
+            string valorString = venda.ValorUnitario.ToString();
+            if (valorString.Contains(","))
+            {
+                valorDepoisVirgula = valorString.Split(',')[1];
+                if (valorDepoisVirgula.Length > 2)
+                {
+                    valorDepoisVirgula = valorDepoisVirgula.Substring(0, 2);
+                    valorString = valorString.Split(',')[1] + "," + valorDepoisVirgula;
+                }
+                if (valorDepoisVirgula.Length == 1)
+                {
+                    valorDepoisVirgula = valorDepoisVirgula + "0";
+                    valorString = valorString.Split(',')[0] + "," + valorDepoisVirgula;
+                }
+
+            }
+            else
+            {
+                valorString = valorString + ",00";
+            }
+
+            var concatenado = new System.Text.StringBuilder();
+            concatenado.Append(valorString);
+            for (int i = 0; i < padrao - valorString.Length; i++)
+            {
+                concatenado.Append(" ");
+            }
+            valorString = concatenado.ToString();
+
+
+            return valorString;
         }
+
+       
     }
 }
