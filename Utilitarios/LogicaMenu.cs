@@ -100,5 +100,36 @@ namespace CapiFiscal.Utilitarios
             return quantidadeString;
 
         }
+
+        public string ValorTotalProduto(Venda venda)
+        {
+            int padrao = 7;
+            string valorDepoisVirgula;
+            string valorTotalString = venda.ValorTotal.ToString();
+            if (valorTotalString.Length > 7)
+            {
+                valorTotalString = "9999,99";
+            }
+            if (valorTotalString.Contains(","))
+            {
+                valorDepoisVirgula = valorTotalString.Split(',')[1];
+                if (valorDepoisVirgula.Length > 2)
+                {
+                    valorDepoisVirgula = valorDepoisVirgula.Substring(0, 2);
+                    valorTotalString = valorTotalString.Split(',')[1] + "," + valorDepoisVirgula;
+                }
+                if (valorDepoisVirgula.Length == 1)
+                {
+                    valorDepoisVirgula = valorDepoisVirgula + "0";
+                    valorTotalString = valorTotalString.Split(',')[0] + "," + valorDepoisVirgula;
+                }
+            }
+            else
+            {
+                valorTotalString = valorTotalString + ",00";
+            }
+
+            return valorTotalString;
+        }
     }
 }
