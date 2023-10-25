@@ -10,12 +10,11 @@ namespace CapiFiscal.Utilitarios
     {
         public static void Pontilhado()
         {
-            for (int i = 0; i < 60; i++)
+            for (int i = 0; i < 80; i++)
             {
                 Console.Write("-");
             }
-           
-
+            Console.WriteLine();
         }
     }
 }

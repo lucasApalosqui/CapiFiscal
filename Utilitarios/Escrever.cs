@@ -11,12 +11,12 @@ namespace CapiFiscal.Utilitarios
         public static void Padrao(string texto)
         {
             int contagemCaracteres = texto.Length;
-            int QntLinhas = 60;
+            int QntLinhas = 80;
             int padrao = QntLinhas - texto.Length;
             if (padrao < 0)
             {
-                string texto1 = texto.Substring(60);
-                string texto2 = texto.Substring(0, 60);
+                string texto1 = texto.Substring(QntLinhas);
+                string texto2 = texto.Substring(0, QntLinhas);
                 Console.WriteLine(texto2);
                 
                 padrao = QntLinhas - texto1.Length;
