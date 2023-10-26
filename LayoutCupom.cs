@@ -71,7 +71,14 @@ namespace CapiFiscal
         public static void Rodape()
         {
             Escrever.Padrao(Escrever.FormataDistancia("N° 00000000135", "Serie 2", DateAndTime.Now.ToString()));
-            
+            QuebraLinha.Pontilhado();
+            Escrever.Padrao(Escrever.FormataDistancia("CHAVE DE ACESSO" , Credencial.GerarChaveAcesso()));
+            QuebraLinha.Pontilhado();
+            Escrever.Padrao(Escrever.FormataDistancia("CONSUMIDOR", "Consumidor não informado"));
+            QuebraLinha.Pontilhado();
+            Escrever.Padrao(Escrever.FormataDistancia("PDV Capi Automação CapiFiscal", "Versão 0.0.1"));
+            QuebraLinha.Pontilhado();
+            Escrever.Padrao(Escrever.FormataDistancia("CX.2", "COO:0000000139", "L|01 Oper: Lucas Apalosqui"));
         }
     }
 }
