@@ -67,8 +67,9 @@ namespace CapiFiscal
             Cores.LigarCorCupom();
             LayoutCupom.Cabecalho(_nomeLoja, _cnpj, _rua, _numero, _cidade, _estado);
             LayoutCupom.MenuItens(_vendas);
-            
-            
+            LayoutCupom.ValoresTotais(_vendas);
+            LayoutCupom.Rodape();
+
             Cores.DesligarCorCupom();
         }
 
